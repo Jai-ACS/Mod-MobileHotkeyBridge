@@ -5,7 +5,7 @@
 	"Version": 0.1,
 	"Desc": "Test",
 	"Author": "Jai",
-	"UIPackage": "UI/MobileHotkeyBridge",
+	"UIPackage": "UI/Jai_MobileHotkeyBridge",
 	"Tags": ["Function","Usability"],
 	"IncreasedDesc": "",
 	"IsInsideCreat": false,
