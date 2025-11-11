@@ -3,7 +3,7 @@ local MobileKeyBridgeMod = GameMain:GetMod("Jai_MobileKeyBridgeMod")
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
 
-function MobileKeyBridgeMod:OnInit()
+function MobileKeyBridgeMod:OnLoad() -- Using OnLoad() instead of OnInit()
 	local tbEventMod = GameMain:GetMod("_Event")
 	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
 end
@@ -96,8 +96,8 @@ function tbWindow:OnInit()
 		for modFunction, onActivated in p:getOrderedPairs() do
 			local button = item:GetChild("list"):AddItemFromPool()
 			button.title = modFunction
-			button.fontsize = 16
-			button.height = 35
+			button.fontsize = 16 -- Making text bigger
+			button.height = 35 -- Make the button taller too
 			button.onClick:Add(
 				function()
 					onActivated()
