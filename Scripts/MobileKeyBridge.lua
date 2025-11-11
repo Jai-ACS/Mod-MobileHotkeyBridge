@@ -1,4 +1,4 @@
-local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridgeMod")
+local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridge")
 
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
