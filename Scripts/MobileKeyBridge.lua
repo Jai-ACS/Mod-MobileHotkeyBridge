@@ -1,14 +1,14 @@
-local MobileKeyBridgeMod = GameMain:GetMod("Jai_MobileKeyBridgeMod")
+local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridgeMod")
 
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
 
-function MobileKeyBridgeMod:OnLoad() -- Using OnLoad() instead of OnInit()
+function MobileHotkeyBridgeMod:OnLoad() -- Using OnLoad() instead of OnInit()
 	local tbEventMod = GameMain:GetMod("_Event")
 	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
 end
 
-function MobileKeyBridgeMod:OnWindowEvent(pThing, pObjs)
+function MobileHotkeyBridgeMod:OnWindowEvent(pThing, pObjs)
 	local pWnd = pObjs[0]
 	local iArg = pObjs[1]
 	if pWnd == CS.Wnd_GameMain.Instance and iArg == 1 then
@@ -24,7 +24,7 @@ function MobileKeyBridgeMod:OnWindowEvent(pThing, pObjs)
 end
 
 -- Utility to create a table/map that retains insertion order
-function MobileKeyBridgeMod:createOrderedMap()
+function MobileHotkeyBridgeMod:createOrderedMap()
     local map = {
         keys = {},
         data = {}
@@ -61,7 +61,7 @@ function MobileKeyBridgeMod:createOrderedMap()
 	return map
 end
 
-function MobileKeyBridgeMod:register(modName, modFunction, onActivated)
+function MobileHotkeyBridgeMod:register(modName, modFunction, onActivated)
 	if (type(modName) == "string" and modName ~= "" and
 		type(modFunction) == "string" and modFunction ~= "" and
 		type(onActivated) == "function"
@@ -69,7 +69,7 @@ function MobileKeyBridgeMod:register(modName, modFunction, onActivated)
 		self.data = self.data or self:createOrderedMap()
 		
 		if self.data:get(modName) == nil then
-			self.data:set(modName, MobileKeyBridgeMod:createOrderedMap())
+			self.data:set(modName, MobileHotkeyBridgeMod:createOrderedMap())
 		end
 		
 		local p = self.data:get(modName)
@@ -89,7 +89,7 @@ function tbWindow:OnInit()
 	frame.title = "Mod" .. XT("手机版快捷键桥")
 	local list = self:GetChild("list");
 	
-	for modName, p in MobileKeyBridgeMod.data:getOrderedPairs() do
+	for modName, p in MobileHotkeyBridgeMod.data:getOrderedPairs() do
 		local item = list:AddItemFromPool()
 		item:GetChild("name").text = modName
 		
