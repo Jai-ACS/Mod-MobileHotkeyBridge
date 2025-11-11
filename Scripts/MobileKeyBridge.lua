@@ -12,7 +12,7 @@ function MobileHotkeyBridgeMod:OnWindowEvent(pThing, pObjs)
 	local pWnd = pObjs[0]
 	local iArg = pObjs[1]
 	if pWnd == CS.Wnd_GameMain.Instance and iArg == 1 then
-		local openButton = UIPackage.CreateObject("Jai_MobileKeyBridge", "OpenButton")
+		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 		pWnd.UIInfo.m_MainMenu:AddChild(openButton)
 		
 		openButton:GetChild("button").onClick:Add(
@@ -81,7 +81,7 @@ function MobileHotkeyBridgeMod:register(modName, modFunction, onActivated)
 end
 
 function tbWindow:OnInit()
-	self.window.contentPane = UIPackage.CreateObject("ModUiManager", "ModListWindow")
+	self.window.contentPane = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "ModListWindow")
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
 	
