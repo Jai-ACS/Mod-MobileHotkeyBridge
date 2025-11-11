@@ -1,13 +1,13 @@
 {
-	"Name":"JaiTest",
-	"DisplayName":"Jai_MobileKeyBridge",
-	"GameVersion":1.2,
-	"Version":0.1,
-	"Desc":"Test",
-	"Author":"Jai",
-	"UIPackage":"UI/ModUiManager",
-	"Tags":["Function","Usability"],
-	"IncreasedDesc":"",
-	"IsInsideCreat":false,
-	"ParentModInfo":null
+	"Name": "Jai_MobileHotkeyBridge",
+	"DisplayName": "Mobile Hotkey Bridge",
+	"GameVersion": 1.2,
+	"Version": 0.1,
+	"Desc": "Test",
+	"Author": "Jai",
+	"UIPackage": "UI/MobileHotkeyBridge",
+	"Tags": ["Function","Usability"],
+	"IncreasedDesc": "",
+	"IsInsideCreat": false,
+	"ParentModInfo": null
 }
