@@ -1,0 +1,13 @@
+{
+	"Name":"JaiTest",
+	"DisplayName":"MobileKeyBridge",
+	"GameVersion":1.2,
+	"Version":0.1,
+	"Desc":"Test",
+	"Author":"Jai",
+	"UIPackage":"UI/ModUiManager",
+	"Tags":["Function","Usability"],
+	"IncreasedDesc":"",
+	"IsInsideCreat":false,
+	"ParentModInfo":null
+}
