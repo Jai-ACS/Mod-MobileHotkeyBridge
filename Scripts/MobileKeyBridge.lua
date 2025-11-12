@@ -3,24 +3,35 @@ local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridge")
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
 
-function MobileHotkeyBridgeMod:OnLoad() -- Using OnLoad() instead of OnInit()
-	local tbEventMod = GameMain:GetMod("_Event")
-	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
-end
+-- function MobileHotkeyBridgeMod:OnLoad() -- Using OnLoad() instead of OnInit()
+-- 	local tbEventMod = GameMain:GetMod("_Event")
+-- 	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
+-- end
 
-function MobileHotkeyBridgeMod:OnWindowEvent(pThing, pObjs)
-	local pWnd = pObjs[0]
-	local iArg = pObjs[1]
-	if pWnd == CS.Wnd_GameMain.Instance and iArg == 1 then
-		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
-		pWnd.UIInfo.m_MainMenu:AddChild(openButton)
+-- function MobileHotkeyBridgeMod:OnWindowEvent(pThing, pObjs)
+-- 	local pWnd = pObjs[0]
+-- 	local iArg = pObjs[1]
+-- 	if pWnd == CS.Wnd_GameMain.Instance and iArg == 1 then
+-- 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
+-- 		pWnd.UIInfo.m_MainMenu:AddChild(openButton)
 		
-		openButton:GetChild("button").onClick:Add(
-			function()
-				tbWindow:Show()
-			end
-		)
-	end
+-- 		openButton:GetChild("button").onClick:Add(
+-- 			function()
+-- 				tbWindow:Show()
+-- 			end
+-- 		)
+-- 	end
+-- end
+
+function MobileHotkeyBridgeMod:OnInit()
+	local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
+	pWnd.UIInfo.m_MainMenu:AddChild(openButton)
+	
+	openButton:GetChild("button").onClick:Add(
+		function()
+			tbWindow:Show()
+		end
+	)
 end
 
 -- Utility to create a table/map that retains insertion order
