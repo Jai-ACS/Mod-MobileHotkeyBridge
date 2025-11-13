@@ -3,7 +3,7 @@ local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridge")
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
 
-function MobileHotkeyBridgeMod:OnInit()
+function MobileHotkeyBridgeMod:OnEnter()
 	local tbEventMod = GameMain:GetMod("_Event")
 	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
 end
