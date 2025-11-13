@@ -9,11 +9,11 @@ function MobileHotkeyBridgeMod:OnInit()
 	tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
 end
 
-function MobileHotkeyBridge:OnLoad()
+function MobileHotkeyBridgeMod:OnLoad()
 	CS.WorldLuaHelper():ShowMsgBox("Load")
 end
 
-function MobileHotkeyBridge:OnEnter()
+function MobileHotkeyBridgeMod:OnEnter()
 	CS.WorldLuaHelper():ShowMsgBox("Enter")
 end
 
