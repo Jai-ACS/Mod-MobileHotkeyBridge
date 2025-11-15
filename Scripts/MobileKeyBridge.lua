@@ -20,8 +20,10 @@ function MobileHotkeyBridgeMod:CheckAndAttachButton()
 	if (mainMenu ~= nil and mainMenu:GetChild("Jai_MobileHotkeyBridge_Button") == nil) then
 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 		openButton.name = "Jai_MobileHotkeyBridge_Button"
+		openButton.icon = "icon-bridge.png"
+		openButton.title = XT("快键桥")
+		
 		mainMenu:AddChild(openButton)
-	
 		openButton:GetChild("button").onClick:Add(
 			function()
 				tbWindow:Show()
