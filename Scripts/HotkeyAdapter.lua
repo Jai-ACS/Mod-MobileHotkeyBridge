@@ -21,7 +21,7 @@ function Mod:CheckAndAttachButton()
 		local openButton = UIPackage.CreateObject("Jai_HotkeyAdapter", "OpenButton")
 		openButton.name = "Jai_HotkeyAdapter_Button"
 		--openButton:GetChild("icon").url = "icon-bridge.png"
-		openButton:GetChild("title").text = XT("快键桥")
+		openButton:GetChild("title").text = XT("连接器")
 		
 		mainMenu:AddChild(openButton)
 		openButton.onClick:Add(
