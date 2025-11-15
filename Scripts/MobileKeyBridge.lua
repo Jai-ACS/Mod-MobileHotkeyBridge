@@ -17,9 +17,11 @@ function MobileHotkeyBridgeMod:OnWindowEvent(pThing, pObjs)
 	--end
 	
 	if pWnd == CS.Wnd_GameMain.Instance and iArg == 1 then
-		function pWnd:OnShown()
-			CS.WorldLuaHelper():ShowMsgBox("Window event")
-		end
+		pWnd.onShown:Add(
+			function()
+				CS.WorldLuaHelper():ShowMsgBox("Window event")
+			end
+		)
 		
 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 		pWnd.UIInfo.m_MainMenu:AddChild(openButton)
