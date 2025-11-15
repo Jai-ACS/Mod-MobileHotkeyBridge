@@ -1,3 +1,3 @@
 Key	Value
-手机版快捷键桥	Mobile Key Bridge
-快键桥	Bridge
+快捷键连接器	Hotkey Adapter
+连接器	Adapter
