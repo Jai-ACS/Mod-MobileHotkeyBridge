@@ -9,7 +9,7 @@ function MobileHotkeyBridgeMod:OnInit()
 end
 
 function MobileHotkeyBridgeMod:OnRender()
-	if self.lastCheck == nil and CS.UnityEngine.Time.time > self.lastCheck + 1.5 then
+	if self.lastCheck == nil or CS.UnityEngine.Time.time > self.lastCheck + 1.5 then
 		self.lastCheck = CS.UnityEngine.Time.time
 		self:AttachButton()
 	end
