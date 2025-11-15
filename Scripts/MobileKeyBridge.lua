@@ -24,7 +24,7 @@ function MobileHotkeyBridgeMod:CheckAndAttachButton()
 		openButton:GetChild("title").text = XT("快键桥")
 		
 		mainMenu:AddChild(openButton)
-		openButton:GetChild("button").onClick:Add(
+		openButton.onClick:Add(
 			function()
 				tbWindow:Show()
 			end
