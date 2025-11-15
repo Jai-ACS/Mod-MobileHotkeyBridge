@@ -8,11 +8,11 @@ function Mod:OnRender()
 	
 	if self.lastCheck == nil or CS.UnityEngine.Time.time > self.lastCheck + 1.5 then -- Check every 1.5 seconds to reduce comprehensive checks with GetChild()
 		self.lastCheck = CS.UnityEngine.Time.time -- Set check time first, OnRender() may be asynchronous and we don't want the next cycle to enter
-		self:CheckAndAttachButton()
+		self:checkAndAttachButton()
 	end
 end
 
-function Mod:CheckAndAttachButton()
+function Mod:checkAndAttachButton()
 	local mainWindow = CS.Wnd_GameMain.Instance
 	local uiInfo = mainWindow and mainWindow.UIInfo
 	local mainMenu = uiInfo and uiInfo.m_MainMenu
