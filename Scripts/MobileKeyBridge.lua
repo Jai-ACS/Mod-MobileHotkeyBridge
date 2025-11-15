@@ -12,7 +12,7 @@ function MobileHotkeyBridgeMod:OnInit()
 	end
 
 	if CS.UnityEngine.WaitForSeconds ~= nil then
-		CS.WorldLuaHelper():ShowMsgBox("No coroutine")
+		CS.WorldLuaHelper():ShowMsgBox("No unity")
 	end
 end
 
