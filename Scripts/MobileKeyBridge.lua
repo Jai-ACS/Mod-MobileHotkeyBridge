@@ -9,37 +9,11 @@ function MobileHotkeyBridgeMod:OnInit()
 end
 
 function MobileHotkeyBridgeMod:OnRender()
-	if self:AttachButton() then
-		coroutine.yield(CS.UnityEngine.WaitForSeconds(10.0))
-		CS.WorldLuaHelper():ShowMsgBox("Long")
-	else
-		coroutine.yield(CS.UnityEngine.WaitForSeconds(1.5))
-		CS.WorldLuaHelper():ShowMsgBox("Short")
+	if self.lastCheck == nil and CS.UnityEngine.Time.time > self.lastCheck + 1.5 then
+		self.lastCheck = CS.UnityEngine.Time.time
+		self:AttachButton()
 	end
 end
-
--- function MobileHotkeyBridgeMod:Test()
--- 	local window = CS.Wnd_GameMain.Instance
-
--- 	if not window.__OnInitHooked then    
--- 		-- Store the original OnInit method to call it later (standard practice)
--- 		window.__OriginalOnInit = window.OnInit
-        
--- 		-- Override the method
--- 		function window:OnInit()
--- 			-- Call the original C# OnInit first!
--- 			if self.__OriginalOnInit then
--- 				self.__OriginalOnInit(self)
--- 			end
-			
--- 			-- Run your button-adding logic
--- 			MobileHotkeyBridgedMod:AttachButton()
---         end
-
--- 		MobileHotkeyBridgedMod:AttachButton()
--- 		pWnd.__OnInitHooked = true
---     end
--- end
 
 function MobileHotkeyBridgeMod:AttachButton()
 	local mainWindow = CS.Wnd_GameMain.Instance
@@ -50,17 +24,14 @@ function MobileHotkeyBridgeMod:AttachButton()
 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 		openButton.name = "TEST"
 		mainMenu:AddChild(openButton)
+		CS.WorldLuaHelper():ShowMsgBox("Added button")
 	
 		openButton:GetChild("button").onClick:Add(
 			function()
 				tbWindow:Show()
 			end
 		)
-
-		return true
 	end
-
-	return false
 	
 	-- local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 	-- CS.Wnd_GameMain.Instance.UIInfo.m_MainMenu:AddChild(openButton)
