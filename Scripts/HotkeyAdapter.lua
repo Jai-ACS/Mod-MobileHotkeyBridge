@@ -1,9 +1,9 @@
-local MobileHotkeyBridgeMod = GameMain:GetMod("Jai_MobileHotkeyBridge")
+local Mod = GameMain:GetMod("Jai_HotkeyAdapter")
 
 local Windows = GameMain:GetMod("Windows")
 local tbWindow = Windows:CreateWindow("ModListWindow")
 
-function MobileHotkeyBridgeMod:OnRender()
+function Mod:OnRender()
 	-- Using OnRender() because the game 
 	
 	if self.lastCheck == nil or CS.UnityEngine.Time.time > self.lastCheck + 1.5 then -- Check every 1.5 seconds to reduce comprehensive checks with GetChild()
@@ -12,14 +12,14 @@ function MobileHotkeyBridgeMod:OnRender()
 	end
 end
 
-function MobileHotkeyBridgeMod:CheckAndAttachButton()
+function Mod:CheckAndAttachButton()
 	local mainWindow = CS.Wnd_GameMain.Instance
 	local uiInfo = mainWindow and mainWindow.UIInfo
 	local mainMenu = uiInfo and uiInfo.m_MainMenu
 
-	if (mainMenu ~= nil and mainMenu:GetChild("Jai_MobileHotkeyBridge_Button") == nil) then
-		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
-		openButton.name = "Jai_MobileHotkeyBridge_Button"
+	if (mainMenu ~= nil and mainMenu:GetChild("Jai_HotkeyAdapter_Button") == nil) then
+		local openButton = UIPackage.CreateObject("Jai_HotkeyAdapter", "OpenButton")
+		openButton.name = "Jai_HotkeyAdapter_Button"
 		--openButton:GetChild("icon").url = "icon-bridge.png"
 		openButton:GetChild("title").text = XT("快键桥")
 		
@@ -33,7 +33,7 @@ function MobileHotkeyBridgeMod:CheckAndAttachButton()
 end
 
 -- Utility to create a table/map that retains insertion order
-function MobileHotkeyBridgeMod:createOrderedMap()
+function Mod:createOrderedMap()
     local map = {
         keys = {},
         data = {}
@@ -70,7 +70,7 @@ function MobileHotkeyBridgeMod:createOrderedMap()
 	return map
 end
 
-function MobileHotkeyBridgeMod:register(modName, modFunction, onActivated)
+function Mod:register(modName, modFunction, onActivated)
 	if (type(modName) == "string" and modName ~= "" and
 		type(modFunction) == "string" and modFunction ~= "" and
 		type(onActivated) == "function"
@@ -78,7 +78,7 @@ function MobileHotkeyBridgeMod:register(modName, modFunction, onActivated)
 		self.data = self.data or self:createOrderedMap()
 		
 		if self.data:get(modName) == nil then
-			self.data:set(modName, MobileHotkeyBridgeMod:createOrderedMap())
+			self.data:set(modName, Mod:createOrderedMap())
 		end
 		
 		local p = self.data:get(modName)
@@ -90,16 +90,16 @@ function MobileHotkeyBridgeMod:register(modName, modFunction, onActivated)
 end
 
 function tbWindow:OnInit()
-	self.window.contentPane = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "ModListWindow")
+	self.window.contentPane = UIPackage.CreateObject("Jai_HotkeyAdapter", "ModListWindow")
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
 	
 	local frame = self:GetChild("frame")
-	frame.title = XT("手机版快捷键桥")
+	frame.title = XT("快捷键连接器")
 	
 	local list = self:GetChild("list");
 	
-	for modName, p in MobileHotkeyBridgeMod.data:getOrderedPairs() do
+	for modName, p in Mod.data:getOrderedPairs() do
 		local item = list:AddItemFromPool()
 		item:GetChild("name").text = modName
 		
