@@ -40,8 +40,9 @@ function MobileHotkeyBridgeMod:AttachButton()
 	local uiInfo = mainWindow and mainWindow.UIInfo
 	local mainMenu = uiInfo and uiInfo.m_MainMenu
 
-	if (mainMenu ~= null) then
+	if (mainMenu ~= nil and mainMenu:GetChild("TEST") == nil) then
 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
+		openButton.name = "TEST"
 		mainMenu:AddChild(openButton)
 	
 		openButton:GetChild("button").onClick:Add(
