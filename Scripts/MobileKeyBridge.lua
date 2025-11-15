@@ -6,6 +6,14 @@ local tbWindow = Windows:CreateWindow("ModListWindow")
 function MobileHotkeyBridgeMod:OnInit()
 	local tbEventMod = GameMain:GetMod("_Event")
 	--tbEventMod:RegisterEvent(g_emEvent.WindowEvent, self.OnWindowEvent, self)
+
+	if type(coroutine.yield) ~= 'function' then
+		CS.WorldLuaHelper():ShowMsgBox("No coroutine")
+	end
+
+	if CS.UnityEngine.WaitForSeconds ~= nil then
+		CS.WorldLuaHelper():ShowMsgBox("No coroutine")
+	end
 end
 
 function MobileHotkeyBridgeMod:OnRender()
