@@ -1,5 +1,5 @@
-# Mobile Hotkey Bridge
-Mod that helps bridge mods that require hotkey to use. This mod provides a bridging interface where functionalities originally triggered by hotkeys could be activated.
+# Hotkey Adapter
+Mod that acts as an adapter/bridge for mods with hotkey(s). This mod provides a bridging interface where functionalities originally triggered by hotkeys could be activated.
 
 # Interfacing
 In order for a mod to be bridged, it has to first interface with this bridging mod.
