@@ -21,7 +21,7 @@ function MobileHotkeyBridgeMod:CheckAndAttachButton()
 		local openButton = UIPackage.CreateObject("Jai_MobileHotkeyBridge", "OpenButton")
 		openButton.name = "Jai_MobileHotkeyBridge_Button"
 		openButton.icon = "icon-bridge.png"
-		openButton.title = XT("快键桥")
+		openButton:GetChild("title").text = XT("快键桥")
 		
 		mainMenu:AddChild(openButton)
 		openButton:GetChild("button").onClick:Add(
