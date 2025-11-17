@@ -4,14 +4,11 @@ local Windows = GameMain:GetMod("Windows")
 
 local function test()
 	local win = Windows:CreateWindow("ModListWindow")
-	Mod.HLW:Show("Create")
+	CS.WorldLuaHelper:new():Show("Create")
 	return win
 end
 -- local tbWindow = Windows:CreateWindow("ModListWindow")
 local tbWindow = test()
-function Mod:OnInit()
-	self.HLW = CS.WorldLuaHelper()
-end
 
 function Mod:OnRender()
 	-- Using OnRender() because the game seems to programmatically change the UI components when switching between sect and map exploration screens
@@ -104,7 +101,7 @@ function tbWindow:OnInit()
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
 
-	Mod.HLW:Show("Init")
+	CS.WorldLuaHelper:new():Show("Init")
 	
 	local frame = self:GetChild("frame")
 	frame.title = XT("快捷键连接器")
@@ -134,5 +131,5 @@ function tbWindow:OnInit()
 end
 
 function tbWindow:updateList()
-	Mod.HLW:Show("Update")
+	CS.WorldLuaHelper:new():Show("Update")
 end
