@@ -4,11 +4,16 @@ local Windows = GameMain:GetMod("Windows")
 
 local function test()
 	local win = Windows:CreateWindow("ModListWindow")
+	CS.WorldLuaHelper()
 	CS.WorldLuaHelper():ShowMsgBox("Create")
 	return win
 end
 -- local tbWindow = Windows:CreateWindow("ModListWindow")
-local tbWindow = test()
+local tbWindow = {}
+
+function Mod:OnInit()
+	tbWindow = tbWindow or test()
+end
 
 function Mod:OnRender()
 	-- Using OnRender() because the game seems to programmatically change the UI components when switching between sect and map exploration screens
