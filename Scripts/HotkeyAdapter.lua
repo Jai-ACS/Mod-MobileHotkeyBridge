@@ -93,6 +93,8 @@ function tbWindow:OnInit()
 	self.window.contentPane = UIPackage.CreateObject("Jai_HotkeyAdapter", "ModListWindow")
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
+
+	CS.WorldLuaHelper().ShowMsgBox("window created")
 	
 	local frame = self:GetChild("frame")
 	frame.title = XT("快捷键连接器")
@@ -103,7 +105,7 @@ function tbWindow:updateList()
 		return
 	end
 
-	local list = self:GetChild("list");
+	local list = self:GetChild("list")
 	
 	for modName, p in Mod.data:getOrderedPairs() do
 		local item = list:AddItemFromPool()
