@@ -98,9 +98,7 @@ function tbWindow:OnInit()
 	
 	local frame = self:GetChild("frame")
 	frame.title = XT("快捷键连接器")
-end
 
-function tbWindow:updateList()
 	if Mod.data == nil then
 		return
 	end
@@ -123,4 +121,8 @@ function tbWindow:updateList()
 			)
 		end
 	end
+end
+
+function tbWindow:updateList()
+	
 end
