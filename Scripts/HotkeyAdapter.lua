@@ -4,7 +4,6 @@ local Windows = GameMain:GetMod("Windows")
 
 local function test()
 	local win = Windows:CreateWindow("ModListWindow")
-	CS.WorldLuaHelper()
 	CS.WorldLuaHelper():ShowMsgBox("Create")
 	return win
 end
