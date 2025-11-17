@@ -1,11 +1,10 @@
 local Mod = GameMain:GetMod("Jai_HotkeyAdapter")
 
 local Windows = GameMain:GetMod("Windows")
-local WLH = {}
 
 local function test()
 	local win = Windows:CreateWindow("ModListWindow")
-	WLH:ShowMsgBox("Create")
+	CS.Wnd_Message:Show("Create", 1, nil, true, "", 0, 0, "")
 	return win
 end
 -- local tbWindow = Windows:CreateWindow("ModListWindow")
@@ -13,7 +12,6 @@ local tbWindow = {}
 
 function Mod:OnInit()
 	tbWindow = tbWindow or test()
-	WLH = WLH or CS.WorldLuaHelper()
 end
 
 function Mod:OnRender()
@@ -107,7 +105,7 @@ function tbWindow:OnInit()
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
 
-	WLH:ShowMsgBox("Init")
+	CS.Wnd_Message:Show("Init", 1, nil, true, "", 0, 0, "")
 	
 	local frame = self:GetChild("frame")
 	frame.title = XT("快捷键连接器")
@@ -137,5 +135,5 @@ function tbWindow:OnInit()
 end
 
 function tbWindow:updateList()
-	WLH:ShowMsgBox("Update")
+	CS.Wnd_Message:Show("Update", 1, nil, true, "", 0, 0, "")
 end
