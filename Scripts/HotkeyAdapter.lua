@@ -1,7 +1,14 @@
 local Mod = GameMain:GetMod("Jai_HotkeyAdapter")
 
+local function test()
+	local win = Windows:CreateWindow("ModListWindow")
+	CS.WorldLuaHelper():ShowMsgBox("Create")
+	return win
+end
+
 local Windows = GameMain:GetMod("Windows")
-local tbWindow = Windows:CreateWindow("ModListWindow")
+-- local tbWindow = Windows:CreateWindow("ModListWindow")
+local tbWindow = test()
 
 function Mod:OnRender()
 	-- Using OnRender() because the game seems to programmatically change the UI components when switching between sect and map exploration screens
@@ -93,6 +100,8 @@ function tbWindow:OnInit()
 	self.window.contentPane = UIPackage.CreateObject("Jai_HotkeyAdapter", "ModListWindow")
 	self.window.closeButton = self:GetChild("frame"):GetChild("n5")
 	self.window:Center()
+
+	CS.WorldLuaHelper():ShowMsgBox("Init")
 	
 	local frame = self:GetChild("frame")
 	frame.title = XT("快捷键连接器")
@@ -122,5 +131,5 @@ function tbWindow:OnInit()
 end
 
 function tbWindow:updateList()
-	
+	CS.WorldLuaHelper():ShowMsgBox("Update")
 end
