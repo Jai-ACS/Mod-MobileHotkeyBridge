@@ -101,10 +101,10 @@ function tbWindow:OnInit()
 
 	titleBox.maxWidth = 400
 	titleText.autoSize = CS.FairyGUI.AutoSizeType.Both
-	titleBox.width = titleText.width + 100
+	titleBox.width = titleText.width + 150
 	titleText.fontsize = 18
 	titleBox.height = 50
-	titleText:AddRelation(titleBox, CS.FairyGUI.RelationType.Middle_Middle)
+	titleText.y = titleBox.y + (titleBox.height + titleText.height) / 2
 
 	if Mod.data == nil then
 		return
@@ -130,7 +130,5 @@ function tbWindow:OnInit()
 		end
 
 		subList:ResizeToFit()
-
-		item.height = subList.y + subList.height + 15
 	end
 end
