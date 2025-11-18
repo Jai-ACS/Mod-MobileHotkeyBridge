@@ -117,5 +117,7 @@ function tbWindow:OnInit()
 				end
 			)
 		end
+
+		item:GetChild("list"):ResizeToFit()
 	end
 end
