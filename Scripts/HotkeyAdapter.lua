@@ -104,7 +104,7 @@ function tbWindow:OnInit()
 	titleBox.width = titleText.width + 150
 	titleText.fontsize = 18
 	titleBox.height = 50
-	titleText.y = titleBox.y + (titleBox.height + titleText.height) / 2
+	titleText.y = titleBox.y + (titleBox.height - titleText.height) / 2
 
 	if Mod.data == nil then
 		return
