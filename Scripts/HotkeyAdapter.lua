@@ -103,7 +103,8 @@ function tbWindow:OnInit()
 	titleText.autoSize = CS.FairyGUI.AutoSizeType.Both
 	titleBox.width = titleText.width + 60
 	titleText.fontsize = 18
-	titleBox.height = 40
+	titleBox.height = 50
+	titleText:AddRelation(titleBox, CS.FairyGUI.RelationType.Middle_Middle)
 
 	if Mod.data == nil then
 		return
