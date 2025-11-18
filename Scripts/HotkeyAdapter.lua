@@ -99,7 +99,7 @@ function tbWindow:OnInit()
 	local titleBox = frame:GetChild("n6")
 	local titleText = frame:GetChild("title")
 
-	titleBox.maxX = 400
+	titleBox.maxWidth = 400
 	titleText.autoSize = CS.FairyGUI.AutoSizeType.ShrinkAndExpand
 	titleBox.width = titleText.width
 
