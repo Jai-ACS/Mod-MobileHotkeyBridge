@@ -24,4 +24,4 @@ end
 * You should always check for `nil` before calling `register()`, as the user may not have downloaded and activated this bridging mod
 
 ## Changelog
-* 1.1: Fixed an issue where the game goes into a weird mixed language mode when switching between languages while the mod is downloaded.
+* 1.1: Fixed an issue where the game goes into a weird mixed language mode when switching between languages while the mod is downloaded
