@@ -2,7 +2,7 @@
 	"Name": "Jai_HotkeyAdapter",
 	"DisplayName": "Hotkey Adapter | 快捷键连接器",
 	"GameVersion": 1.2,
-	"Version": 1.0,
+	"Version": 1.1,
 	"Desc": "Mod that acts as an adapter/bridge for mods with hotkey(s). This mod provides a bridging interface where functionalities originally triggered by hotkeys could be activated.\r\n\r\n一个能为其他MOD的快捷键功能连接到手游版游戏的MOD，使这些功能有替代管道被激活。",
 	"Author": "Jai",
 	"UIPackage": "UI/Jai_HotkeyAdapter",
